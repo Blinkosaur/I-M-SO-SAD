@@ -12,4 +12,4 @@ I did it for hours. Days. Multiple days.
 
 And then it got deleted because I this is my 8th time trying to make a New Project that somehow also successfully Gits. I keep repeating the first steps over and over to make it into a git thing.
 
-So you are not getting my answers because they are gone and at this point I am sobbing.
+So you are not getting my answers because they are gone and at this point I am sobbing. usethis::use_git()
