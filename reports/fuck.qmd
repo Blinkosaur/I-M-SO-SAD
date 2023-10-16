@@ -12,4 +12,155 @@ I did it for hours. Days. Multiple days.
 
 And then it got deleted because I this is my 8th time trying to make a New Project that somehow also successfully Gits. I keep repeating the first steps over and over to make it into a git thing.
 
-So you are not getting my answers because they are gone and at this point I am sobbing. usethis::use_git()
+So you are not getting my answers because they are gone and at this point I am sobbing. \
+\
+But update --- I copy-pasted it from an old html link.
+
+# **IamSad-CompThinking1**
+
+## **Computational Thinking 1 🧽 PORIFERA 🧽**
+
+**Q1:** Match the following types of real-world data to their equivalent R type and explain your reasoning.
+
+-   Real world data:
+
+    -   scientific names = character because they are words
+
+    -   the count of plants in a quadrat = integers because they are just normal #\'s
+
+    -   whether or not it rained on a sequence of days = logical, because it\'s a yes or no situation
+
+    -   and the reaction times of birds to disturbances in seconds = double, numeric.....?
+
+-   R types: logical, integer, numeric, and character
+
+    \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
+
+    **Q2:** In plain english, what does this code chunk do?
+
+```         
+bird_mass_g <- c(100.1, 99.2, 99.3, NA, 100.0, 101.5, 94.7, 99.2, 108.2)
+bird_mass_g
+```
+
+```         
+[1] 100.1  99.2  99.3    NA 100.0 101.5  94.7  99.2 108.2
+```
+
+```         
+# Makes a data thingy of masses and names that is called bird_mass_g
+
+# OG CODE
+mean_mass <- mean(bird_mass_g)
+mean_mass
+```
+
+```         
+[1] NA
+```
+
+```         
+# takes the mean of bird_mass_g and names that mean "mean_mass"
+# Error: NA's prevent the mean from happening 
+
+# FIXED CODE
+mean_mass <- mean(bird_mass_g, na.rm = TRUE)        
+mean_mass
+```
+
+```         
+[1] 100.275
+```
+
+```         
+# OG CODE
+sd_mass <- sd(bird_mass_g)
+# takes the standard deviation of bird_mass_g and names that thing sd_mass
+# Error...previous NA's prevent the SD's from SD-ing
+
+# FIXED CODE
+sd_mass <- sd(bird_mass_g)
+sd_mass
+```
+
+```         
+[1] NA
+```
+
+```         
+is_outlier <- bird_mass_g > mean_mass + 1 * sd_mass
+# takes the bird masses from bird_mass_g that are greater than the mean_mass of all birds that are + 3 * the standard deviation (3 SD's away from the mean?) and names those values is_outlier
+
+is_outlier
+```
+
+```         
+[1] NA NA NA NA NA NA NA NA NA
+```
+
+```         
+num_outliers <- sum(is_outlier) 
+# takes the sum of the outliers 
+
+num_outliers
+```
+
+```         
+[1] NA
+```
+
+```         
+# Returns: [1] NA <-- is this...wrong...? 
+```
+
+-   Two of the lines have mistakes that keep the code from doing what it\'s supposed to. What are the mistakes and how would you fix them?
+
+    -   The code cannot calculate mean and SD because there are dastardly NA\'s involved.
+
+-   What are the types of:
+
+    -   `bird_mass_g` = numeric, double
+
+    -   `is_outlier = logical`
+
+    -   `num_outliers` = integer (but I\'m getting an NA???)
+
+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
+
+**Q3**
+
+How could you change the first line of code in the following chunk so that `median_count` comes out to `5L`?
+
+```         
+quad_counts <- c(2L, 19L, 4L, 5L, 5L, 12L, 0L, 7L)
+# creates of vector of numbers and L'sx
+
+# Old Version
+valid_quads <- c(1, 2, 3, 5, 7) # Median Count = 4
+
+#Changed Version 
+valid_quads <- c(2, 3, 5, 6, 7) # Median Count = 5 -- not getting 5L just 5...? 
+
+quad_counts2 <- quad_counts[valid_quads]
+quad_counts2
+```
+
+```         
+[1] 19  4  5 12  0
+```
+
+```         
+# From ChatGPT: This line creates a new vector named quad_counts2 by subsetting the quad_counts vector using the values in the valid_quads vector as indices. In other words, it selects elements from quad_counts at the positions specified by the values in valid_quads.
+
+median_count <- median(quad_counts2)
+
+median_count
+```
+
+```         
+[1] 5
+```
+
+{r} #\| echo: false 2 \* 2
+
+The `echo: false` option disables the printing of code (only output is displayed).
