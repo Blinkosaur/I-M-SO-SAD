@@ -16,6 +16,8 @@ So you are not getting my answers because they are gone and at this point I am s
 \
 But update --- I copy-pasted it from an old html link.
 
+UPDATES AGAIN MAX!!! Aspen helped me a lot. I can take no credit for this. I am a 🪱.
+
 # **IamSad-CompThinking1**
 
 ## **Computational Thinking 1 🧽 PORIFERA 🧽**
@@ -36,81 +38,35 @@ But update --- I copy-pasted it from an old html link.
 
     \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
 
-    **Q2:** In plain english, what does this code chunk do?
+    Q2: In plain english, what does this code chunk do? Two of the lines have mistakes that keep the code from doing what it's supposed to. What are the mistakes and how would you fix them?
 
 ```{r}
-bird_mass_g <- c(100.1, 99.2, 99.3, NA, 100.0, 101.5, 94.7, 99.2, 108.2)
-bird_mass_g
-```
 
-```         
-[1] 100.1  99.2  99.3    NA 100.0 101.5  94.7  99.2 108.2
-```
+bird_mass_g <- c(100.1, 99.2, 99.3, NA, 100.0, 101.5, 94.7, 99.2, 108.2) 
+# Makes a vector of the numeric sort (>:()) of masses called bird_mass_g
 
-```         
-# Makes a data thingy of masses and names that is called bird_mass_g
 
-# OG CODE
 mean_mass <- mean(bird_mass_g)
-mean_mass
-```
+sd_mass <- sd(bird_mass_g)
+# THERE ARE NA'S SO IT CAN'T DO THE MEAN OR THE SD!!!!!!!!! 
 
-```         
-[1] NA
-```
-
-```         
-# takes the mean of bird_mass_g and names that mean "mean_mass"
-# Error: NA's prevent the mean from happening 
-
-# FIXED CODE
+# FIXED CODE -- we removed the dastardly NA's 
 mean_mass <- mean(bird_mass_g, na.rm = TRUE)        
 mean_mass
-```
 
-```         
-[1] 100.275
-```
+sd_mass <- sd(bird_mass_g, na.rm = TRUE)
+sd_mass 
 
-```         
-# OG CODE
-sd_mass <- sd(bird_mass_g)
-# takes the standard deviation of bird_mass_g and names that thing sd_mass
-# Error...previous NA's prevent the SD's from SD-ing
+BIRDZ <- bird_mass_g[!is.na(bird_mass_g)]
 
-# FIXED CODE
-sd_mass <- sd(bird_mass_g)
-sd_mass
-```
-
-```         
-[1] NA
-```
-
-```         
-is_outlier <- bird_mass_g > mean_mass + 1 * sd_mass
+is_outlier <- BIRDZ > mean_mass + 3 * sd_mass
 # takes the bird masses from bird_mass_g that are greater than the mean_mass of all birds that are + 3 * the standard deviation (3 SD's away from the mean?) and names those values is_outlier
 
-is_outlier
-```
-
-```         
-[1] NA NA NA NA NA NA NA NA NA
-```
-
-```         
-num_outliers <- sum(is_outlier) 
+num_outliers <- sum(is_outlier)
 # takes the sum of the outliers 
+# Returns: [1] NA <-- is this...wrong...? >:(
 
 num_outliers
-```
-
-```         
-[1] NA
-```
-
-```         
-# Returns: [1] NA <-- is this...wrong...? 
 ```
 
 -   Two of the lines have mistakes that keep the code from doing what it's supposed to. What are the mistakes and how would you fix them?
@@ -123,7 +79,7 @@ num_outliers
 
     -   `is_outlier = logical`
 
-    -   `num_outliers` = integer (but I'm getting an NA???)
+    -   `num_outliers` = integer
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
 
@@ -131,7 +87,7 @@ num_outliers
 
 How could you change the first line of code in the following chunk so that `median_count` comes out to `5L`?
 
-```         
+```{r}
 quad_counts <- c(2L, 19L, 4L, 5L, 5L, 12L, 0L, 7L)
 # creates of vector of numbers and L'sx
 
@@ -142,25 +98,12 @@ valid_quads <- c(1, 2, 3, 5, 7) # Median Count = 4
 valid_quads <- c(2, 3, 5, 6, 7) # Median Count = 5 -- not getting 5L just 5...? 
 
 quad_counts2 <- quad_counts[valid_quads]
-quad_counts2
-```
-
-```         
-[1] 19  4  5 12  0
-```
-
-```         
 # From ChatGPT: This line creates a new vector named quad_counts2 by subsetting the quad_counts vector using the values in the valid_quads vector as indices. In other words, it selects elements from quad_counts at the positions specified by the values in valid_quads.
+
+quad_counts2
 
 median_count <- median(quad_counts2)
 
 median_count
+
 ```
-
-```         
-[1] 5
-```
-
-{r} #\| echo: false 2 \* 2
-
-The `echo: false` option disables the printing of code (only output is displayed).
