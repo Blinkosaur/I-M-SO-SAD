@@ -20,19 +20,53 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="fuck_files/libs/clipboard/clipboard.min.js"></script>
-<script src="fuck_files/libs/quarto-html/quarto.js"></script>
-<script src="fuck_files/libs/quarto-html/popper.min.js"></script>
-<script src="fuck_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="fuck_files/libs/quarto-html/anchor.min.js"></script>
-<link href="fuck_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="fuck_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="fuck_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="fuck_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="fuck_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -77,16 +111,21 @@ But update — I copy-pasted it from an old html link.</p>
 <li><p>Real world data:</p>
 <ul>
 <li><p>scientific names = character because they are words</p></li>
-<li><p>the count of plants in a quadrat = integers because they are just normal #'s</p></li>
-<li><p>whether or not it rained on a sequence of days = logical, because it's a yes or no situation</p></li>
+<li><p>the count of plants in a quadrat = integers because they are just normal #’s</p></li>
+<li><p>whether or not it rained on a sequence of days = logical, because it’s a yes or no situation</p></li>
 <li><p>and the reaction times of birds to disturbances in seconds = double, numeric…..?</p></li>
 </ul></li>
 <li><p>R types: logical, integer, numeric, and character</p>
 <p>--------------------------------------------------------------------------------------</p>
 <p><strong>Q2:</strong> In plain english, what does this code chunk do?</p></li>
 </ul>
-<pre><code>bird_mass_g &lt;- c(100.1, 99.2, 99.3, NA, 100.0, 101.5, 94.7, 99.2, 108.2)
-bird_mass_g</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>bird_mass_g <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">100.1</span>, <span class="fl">99.2</span>, <span class="fl">99.3</span>, <span class="cn">NA</span>, <span class="fl">100.0</span>, <span class="fl">101.5</span>, <span class="fl">94.7</span>, <span class="fl">99.2</span>, <span class="fl">108.2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bird_mass_g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100.1  99.2  99.3    NA 100.0 101.5  94.7  99.2 108.2</code></pre>
+</div>
+</div>
 <pre><code>[1] 100.1  99.2  99.3    NA 100.0 101.5  94.7  99.2 108.2</code></pre>
 <pre><code># Makes a data thingy of masses and names that is called bird_mass_g
 
@@ -122,15 +161,15 @@ num_outliers</code></pre>
 <pre><code>[1] NA</code></pre>
 <pre><code># Returns: [1] NA &lt;-- is this...wrong...? </code></pre>
 <ul>
-<li><p>Two of the lines have mistakes that keep the code from doing what it's supposed to. What are the mistakes and how would you fix them?</p>
+<li><p>Two of the lines have mistakes that keep the code from doing what it’s supposed to. What are the mistakes and how would you fix them?</p>
 <ul>
-<li>The code cannot calculate mean and SD because there are dastardly NA's involved.</li>
+<li>The code cannot calculate mean and SD because there are dastardly NA’s involved.</li>
 </ul></li>
 <li><p>What are the types of:</p>
 <ul>
 <li><p><code>bird_mass_g</code> = numeric, double</p></li>
 <li><p><code>is_outlier = logical</code></p></li>
-<li><p><code>num_outliers</code> = integer (but I'm getting an NA???)</p></li>
+<li><p><code>num_outliers</code> = integer (but I’m getting an NA???)</p></li>
 </ul></li>
 </ul>
 <p>-----------------------------------------------------------------------------------------</p>

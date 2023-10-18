@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-Well...I did porifera. \
+Well...I did porifera.\
 \
 I did it really well.
 
@@ -12,7 +12,7 @@ I did it for hours. Days. Multiple days.
 
 And then it got deleted because I this is my 8th time trying to make a New Project that somehow also successfully Gits. I keep repeating the first steps over and over to make it into a git thing.
 
-So you are not getting my answers because they are gone and at this point I am sobbing. \
+So you are not getting my answers because they are gone and at this point I am sobbing.\
 \
 But update --- I copy-pasted it from an old html link.
 
@@ -26,9 +26,9 @@ But update --- I copy-pasted it from an old html link.
 
     -   scientific names = character because they are words
 
-    -   the count of plants in a quadrat = integers because they are just normal #\'s
+    -   the count of plants in a quadrat = integers because they are just normal \#'s
 
-    -   whether or not it rained on a sequence of days = logical, because it\'s a yes or no situation
+    -   whether or not it rained on a sequence of days = logical, because it's a yes or no situation
 
     -   and the reaction times of birds to disturbances in seconds = double, numeric.....?
 
@@ -38,7 +38,7 @@ But update --- I copy-pasted it from an old html link.
 
     **Q2:** In plain english, what does this code chunk do?
 
-```         
+```{r}
 bird_mass_g <- c(100.1, 99.2, 99.3, NA, 100.0, 101.5, 94.7, 99.2, 108.2)
 bird_mass_g
 ```
@@ -113,9 +113,9 @@ num_outliers
 # Returns: [1] NA <-- is this...wrong...? 
 ```
 
--   Two of the lines have mistakes that keep the code from doing what it\'s supposed to. What are the mistakes and how would you fix them?
+-   Two of the lines have mistakes that keep the code from doing what it's supposed to. What are the mistakes and how would you fix them?
 
-    -   The code cannot calculate mean and SD because there are dastardly NA\'s involved.
+    -   The code cannot calculate mean and SD because there are dastardly NA's involved.
 
 -   What are the types of:
 
@@ -123,7 +123,7 @@ num_outliers
 
     -   `is_outlier = logical`
 
-    -   `num_outliers` = integer (but I\'m getting an NA???)
+    -   `num_outliers` = integer (but I'm getting an NA???)
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
 

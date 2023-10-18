@@ -65,7 +65,99 @@ ul.task-list li input[type="checkbox"] {
 I did it really well.</p>
 <p>I did it for hours. Days. Multiple days.</p>
 <p>And then it got deleted because I this is my 8th time trying to make a New Project that somehow also successfully Gits. I keep repeating the first steps over and over to make it into a git thing.</p>
-<p>So you are not getting my answers because they are gone and at this point I am sobbing. usethis::use_git()</p>
+<p>So you are not getting my answers because they are gone and at this point I am sobbing.<br>
+<br>
+But update — I copy-pasted it from an old html link.</p>
+<section id="iamsad-compthinking1" class="level1">
+<h1><strong>IamSad-CompThinking1</strong></h1>
+<section id="computational-thinking-1-porifera" class="level2">
+<h2 class="anchored" data-anchor-id="computational-thinking-1-porifera"><strong>Computational Thinking 1 🧽 PORIFERA 🧽</strong></h2>
+<p><strong>Q1:</strong> Match the following types of real-world data to their equivalent R type and explain your reasoning.</p>
+<ul>
+<li><p>Real world data:</p>
+<ul>
+<li><p>scientific names = character because they are words</p></li>
+<li><p>the count of plants in a quadrat = integers because they are just normal #'s</p></li>
+<li><p>whether or not it rained on a sequence of days = logical, because it's a yes or no situation</p></li>
+<li><p>and the reaction times of birds to disturbances in seconds = double, numeric…..?</p></li>
+</ul></li>
+<li><p>R types: logical, integer, numeric, and character</p>
+<p>--------------------------------------------------------------------------------------</p>
+<p><strong>Q2:</strong> In plain english, what does this code chunk do?</p></li>
+</ul>
+<pre><code>bird_mass_g &lt;- c(100.1, 99.2, 99.3, NA, 100.0, 101.5, 94.7, 99.2, 108.2)
+bird_mass_g</code></pre>
+<pre><code>[1] 100.1  99.2  99.3    NA 100.0 101.5  94.7  99.2 108.2</code></pre>
+<pre><code># Makes a data thingy of masses and names that is called bird_mass_g
+
+# OG CODE
+mean_mass &lt;- mean(bird_mass_g)
+mean_mass</code></pre>
+<pre><code>[1] NA</code></pre>
+<pre><code># takes the mean of bird_mass_g and names that mean "mean_mass"
+# Error: NA's prevent the mean from happening 
+
+# FIXED CODE
+mean_mass &lt;- mean(bird_mass_g, na.rm = TRUE)        
+mean_mass</code></pre>
+<pre><code>[1] 100.275</code></pre>
+<pre><code># OG CODE
+sd_mass &lt;- sd(bird_mass_g)
+# takes the standard deviation of bird_mass_g and names that thing sd_mass
+# Error...previous NA's prevent the SD's from SD-ing
+
+# FIXED CODE
+sd_mass &lt;- sd(bird_mass_g)
+sd_mass</code></pre>
+<pre><code>[1] NA</code></pre>
+<pre><code>is_outlier &lt;- bird_mass_g &gt; mean_mass + 1 * sd_mass
+# takes the bird masses from bird_mass_g that are greater than the mean_mass of all birds that are + 3 * the standard deviation (3 SD's away from the mean?) and names those values is_outlier
+
+is_outlier</code></pre>
+<pre><code>[1] NA NA NA NA NA NA NA NA NA</code></pre>
+<pre><code>num_outliers &lt;- sum(is_outlier) 
+# takes the sum of the outliers 
+
+num_outliers</code></pre>
+<pre><code>[1] NA</code></pre>
+<pre><code># Returns: [1] NA &lt;-- is this...wrong...? </code></pre>
+<ul>
+<li><p>Two of the lines have mistakes that keep the code from doing what it's supposed to. What are the mistakes and how would you fix them?</p>
+<ul>
+<li>The code cannot calculate mean and SD because there are dastardly NA's involved.</li>
+</ul></li>
+<li><p>What are the types of:</p>
+<ul>
+<li><p><code>bird_mass_g</code> = numeric, double</p></li>
+<li><p><code>is_outlier = logical</code></p></li>
+<li><p><code>num_outliers</code> = integer (but I'm getting an NA???)</p></li>
+</ul></li>
+</ul>
+<p>-----------------------------------------------------------------------------------------</p>
+<p><strong>Q3</strong></p>
+<p>How could you change the first line of code in the following chunk so that <code>median_count</code> comes out to <code>5L</code>?</p>
+<pre><code>quad_counts &lt;- c(2L, 19L, 4L, 5L, 5L, 12L, 0L, 7L)
+# creates of vector of numbers and L'sx
+
+# Old Version
+valid_quads &lt;- c(1, 2, 3, 5, 7) # Median Count = 4
+
+#Changed Version 
+valid_quads &lt;- c(2, 3, 5, 6, 7) # Median Count = 5 -- not getting 5L just 5...? 
+
+quad_counts2 &lt;- quad_counts[valid_quads]
+quad_counts2</code></pre>
+<pre><code>[1] 19  4  5 12  0</code></pre>
+<pre><code># From ChatGPT: This line creates a new vector named quad_counts2 by subsetting the quad_counts vector using the values in the valid_quads vector as indices. In other words, it selects elements from quad_counts at the positions specified by the values in valid_quads.
+
+median_count &lt;- median(quad_counts2)
+
+median_count</code></pre>
+<pre><code>[1] 5</code></pre>
+<p>{r} #| echo: false 2 * 2</p>
+<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+</section>
+</section>
 
 </main>
 <!-- /main column -->
